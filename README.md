@@ -1,17 +1,22 @@
-Nodejs Workshop Outline
------
+# Nodejs Workshop Outline
+
+![](./img/nodejs-logo.png)
+
+## 目錄
 
 - Nodejs 概述
   - 安裝與更新
-  - 使用 MVN
+  - 使用 NVM
   - 基本用法
   - Node Shell
   - 非同步操作
   - 全域變數
+
 - Nodejs module
   - what is module in Node
   - core module
   - custom module
+
 - Nodejs error handling
   - try-catch
   - callback
