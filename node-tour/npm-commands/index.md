@@ -319,6 +319,6 @@ $ npm run go
 - 回報你的練習結果：`完成` / `失敗，因為...(簡述原因)`
 
 
-# 下一頁
+# 接下來...
 - [回目錄](../SUMMARY.md)
-- [nvm](../nvm/README.md)
+- [Node 版本管理 - 使用 NVM](../nvm-basic/index.md)

@@ -57,6 +57,6 @@ $ npm install npm@latest -g
 
 --- 
 
-# 下一頁
+# 接下來...
 - [回目錄](../SUMMARY.md)
-- [npm commands](../npm-commands/README.md)
+- [Node 套件管理 - NPM 必學指令](../npm-commands/index.md)
