@@ -8,30 +8,56 @@
 
 ```
 var circle = require('./circle.js');
-// 或者
+// or
 var circle = require('./circle');
 
 var bar = require('bar');
 ```
 
 ## 7.2 核心模組
-- http：提供HTTP服务器功能。
-- url：解析URL。
-- fs：与文件系统交互。
-- querystring：解析URL的查询字符串。
-- child_process：新建子进程。
-- util：提供一系列实用小工具。
-- path：处理文件路径。
-- crypto：提供加密和解密功能，基本上是对OpenSSL的包装。
-
+- [http](https://nodejs.org/api/http.html)：提供 http server
+- [url](https://nodejs.org/api/url.html)：解析URL。
+- [fs](https://nodejs.org/api/fs.html)：讀寫檔案系統
+- [child_process](https://nodejs.org/api/child_process.html)：用來執行新的子處理程序
+- [util](https://nodejs.org/api/util.html)：工具類別
+- [path](https://nodejs.org/api/path.html)：處理模組路徑
+- [crypto](https://nodejs.org/api/crypto.html)：處理加密
 
 ## 7.3 自訂模組
+
+
+### function
+
 ```
 // module.js
-
 module.exports = function(x) {
     console.log(x);
 };
+
+// index.js
+var m = require('./foo');
+
+m("這是一個自訂模組");
+
+// 執行
+$ node index.js
+這是一個自訂模組
+```
+
+### object
+
+```
+// foo.js
+
+var out = new Object();
+
+function p(string) {
+  console.log(string);
+}
+
+out.print = p;
+
+module.exports = out;
 ```
 
 

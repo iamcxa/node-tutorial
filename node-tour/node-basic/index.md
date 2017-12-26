@@ -146,6 +146,7 @@ console.log('typeof b=>', typeof b);
 
 ## 6.3 全域變數
 - global
+
 ```
 // 在瀏覽器
 var a = 1;
@@ -161,35 +162,24 @@ global.x => undefined;
 
 ```
 console.log(123);
+
 console.info(123);
+
 console.warn(123);
 
 console.time('tag');
+
 console.timeEnd('tag');
 ```
 
 
 ## 6.4 全域函式
+
 - setTimeout
-```
-```
-
 - clearTimeout
-```
-```
-
 - setInterval
-```
-```
-
 - clearInterval
-```
-```
-
 - Buffer
-```
-```
-
 - `require`
 
 ## 6.8 執行 .js 檔案
