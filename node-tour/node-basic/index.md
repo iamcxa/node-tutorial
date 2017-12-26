@@ -119,7 +119,14 @@ var b = 1.123;
 var c = 'abc';
 var d = {};
 var e = [];
-var 
+var f = function () {};
+
+typeof a
+typeof b
+typeof c
+typeof d
+typeof e
+typeof f
 ```
 
 ### 6.2.2 問題

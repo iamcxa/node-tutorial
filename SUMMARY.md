@@ -24,7 +24,7 @@
   - [安裝與更新](./node-tour/node-installation/index.md)
   - [Node 套件管理 - 使用 NPM](./node-tour/npm/index.md)
   - [Node 套件管理 - NPM 必學指令](./node-tour/npm-commands/index.md)
-  - [Node 版本管理 - 使用 NVM](./node-tour/nvm/index.md)
+  - [Node 版本管理 - 使用 NVM](./node-tour/nvm-basic/index.md)
 
 - DAY2 - 快速上手 Node.js
   - [Node 基礎練習 - 使用 REPL 環境](./node-tour/node-basic/index.md)
