@@ -1,11 +1,4 @@
-## http.STATUS_CODES
 
-`http.STATUS_CODES`是一個對象，屬性名都是狀態碼，屬性值則是該狀態碼的簡短解釋。
-
-```javascript
-require('http').STATUS_CODES['301']
-// "Moved Permanently"
-```
 
 ## 基本用法
 
@@ -458,4 +451,3 @@ curl -k https://localhost:8000
 
 # 接下來...
 - [回目錄](../SUMMARY.md)
-- [Node Module - fs](../node-module-fs/index.md)

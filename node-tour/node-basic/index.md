@@ -182,6 +182,60 @@ console.timeEnd('tag');
 - Buffer
 - `require`
 
+## 6.5 callback
+
+Node 使用 JavaScript 作為開發語言，其特色就是單執行緒，一次只能執行一個任務，所以會使用非同步執行（asynchronous opertion）的方式來達成多個任務的協調。也就是說，每個任務不會是立刻執行，而是輪到前面的處理佇列完成後才執行。
+
+通常 JavaScript 程式都會使用 callback 方式來實作需要等待的任務，如下範例：
+
+```javascript
+var callback = function (error, value) {
+  if (error) {
+    return console.log(error);
+  }
+  console.log(value);
+}
+
+var isTrue = function(value, callback) {
+  if (value === true) {
+    callback(null, "Value was true.");
+  }
+  else {
+    callback(new Error("Value is not true!"));
+  }
+}
+```
+
+## 6.6 callback 與 try-catch
+
+```javascript
+try {
+  db.User.get(userId, function(err, user) {
+    if(err) {
+      throw err
+    }
+    // ...
+  })
+} catch(e) {
+  console.log(‘Oh no!’);
+}
+```
+
+![](../img/node-trycatch.png)
+
+
+## 6.7 錯誤處理
+
+```
+function (err, data) {
+  if (err) {
+    if (!err.noPermission) {
+      return next(err);
+    }
+  }
+}
+```
+
 ## 6.8 執行 .js 檔案
 
 下載 [app.js](./app.js)
@@ -198,6 +252,261 @@ $ node app.js
   - 使用 Node REPL 環境撰寫一套 JavaScript 版本的九九乘法表，使用 `console.log` 輸出結果
   - 命名為 `day2/99.js` 並 PR 該作業
 - 回報與討論你的練習結果：`完成` / `失敗，因為...(簡述原因)`
+
+## 6.10 提升
+
+執行環境 (execution content)
+- Creation Phase
+程式會知道哪裡有用到變數跟函式，並替它們在記憶體留一個位子。
+函式在宣告的時候，就被放入了記憶體。
+所有變數在建立階段被預設成 undefined
+Creation Phase 的時候，包含 Variable Environment, this 和 Outer Environment 都會被建立，而 this 有些情況指向 global environment、有些時候則是指向到某個物件 Object。
+Execute Phase
+
+### 範例一
+
+```
+// 這是比較好的做法，不依賴 hoisting
+var a = 'Hello World';
+console.log(a);
+
+function b() {
+  console.log('呼叫 b');
+}
+b();
+```
+
+### 範例二
+
+```
+console.log(a); // ?
+b();
+
+var a = 'Hello World';
+
+function b() {
+  console.log('呼叫 b');  // ?
+}
+```
+
+### 範例三
+
+```
+console.log(a); // ?
+console.log(b); // ?
+b();  // ?
+
+var a = 'Hello World';
+
+var b = function() {
+  console.log('呼叫 b');
+}
+```
+## 6.9 範圍
+
+- 顯式宣告變數
+
+```
+var value = 1;
+```
+
+- 未顯式宣告變數
+
+```
+value = 1;
+```
+
+### 使用情境
+
+- 強烈建議使用 var 防止同名的區域變數和全域變數之間的衝突。
+
+### 重點提醒
+
+盡量減少使用全域變數，因為如果你使用很多 Javascript 函式庫，免不了使用到同樣名字的全域變數，將導致不可預期的副作用。
+對類別語言而言 scope 是什麼？
+
+- global scope
+- block scope
+```
+public class Main {
+    int c = 3;
+    public void demo(){
+        int a = 0;
+        if(true){
+            int b = 1;
+        }
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+    }
+}
+```
+
+對 Javascript 而言 scope 是什麼？
+- global scope
+- function scope
+
+
+### 範例一
+```
+var message = 'hi';
+
+if(true){
+  var message = 'bye';
+  console.log('=== 1 ===');
+  console.log(message); // ?
+}
+
+console.log('=== 2 ===');
+console.log(message); // ?
+```
+
+### 範例二
+
+```
+var message = 'hi';
+
+function greet() {
+  var message = 'bye';
+  console.log(message);   // ?
+}
+
+console.log('=== 1 ===');
+console.log(message); // ?
+console.log('=== 2 ===');
+greet();
+console.log('=== 3 ===');
+console.log(message); // ?
+```
+
+### 範例三：忽略 var 的情況
+
+```
+message = 'hi';
+
+function greet() {
+  message = 'bye';
+  console.log(message);
+}
+
+console.log('=== 1 ===');
+console.log(message);
+console.log('=== 2 ===');
+greet();
+console.log('=== 3 ===');
+console.log(message);
+```
+
+### 範例 4
+
+```
+function test(){
+  var a = 10
+}
+
+if(true){
+  var b = 20
+}
+
+console.log(a) // a is not defined 存取不到
+console.log(b) // 存取得到
+```
+
+## 6.10 const/let
+
+![](../img/node-let-const.png)
+
+### 範例1
+
+```
+var a = 1;
+let b = 1;
+
+function func1() {
+  a = 2;
+  b = 2;
+  c = 2;
+  console.log('a@func1', a);
+  console.log('b@func1', b);
+}
+func1();
+```
+
+### 範例2
+
+```
+const c = 1;
+
+function func2() {
+  c = 2;
+  console.log('c@func2', c);
+}
+func2();
+```
+
+### 範例3
+
+```
+function func3() {
+  var d = 3;
+  let e = 3;
+  const f = 3;
+  console.log('d@func3=>', d);
+  console.log('e@func3=>', e);
+  console.log('f@func3=>', f);
+}
+func3();
+
+console.log('d=>', d);
+console.log('e=>', e);
+console.log('f=>', f);
+```
+
+### 範例4
+
+```
+function test() {
+  let a = 10
+}
+
+if (true) {
+  const b = 20
+}
+
+console.log(a) // a is not defined 存取不到
+console.log(b) // b is not defined 存取不到
+```
+
+### 範例5: array/object
+
+```
+const a = 10
+a = 20  // TypeError: Assignment to constant variable. 錯誤
+
+const a = []
+a[0] = 1
+
+const b = {}
+b.foo = 123
+
+```
+
+### 範例 6：let in for
+
+```
+for (let i = 0; i < 10; i++) {
+  console.log('in for statement: i', i)
+}
+
+console.log(i) // ReferenceError: i is not defined(…) 存取不到
+```
+
+### 建議
+- 盡量使用 const/let，特別是 const
+- 不要使用 `,` 在同一行分別宣告多個變數
+- 不要在區塊或是函式的的最上方宣告所有變數
+
 
 # 接下來...
 - [回目錄](../SUMMARY.md)

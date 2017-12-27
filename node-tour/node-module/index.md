@@ -65,9 +65,9 @@ module.exports = out;
 
 ## 7.4 練習
 - 將資料 JSON [獨立文化書店](https://cloud.culture.tw/frontsite/trans/emapOpenDataAction.do?method=exportEmapJson&typeId=M) 撰寫為一模組，命名為 `data.json`。（[來源](https://data.gov.tw/dataset/6224)）
-- 使用 npm install `lodash`，然後使用 `find` 取得 cityName 欄位中含有 `臺中市` 的所有資料。
-- 將 `console.info` / `console.time` / `console.count` 包裝為一個叫做 `log` 的 module。
-- 最後透過 `log.info` 印出所有結果，並透過 `log.time` 計算耗費時間，同時使用 `log.count` 統計筆數。
+- 使用 npm install `lodash`，然後使用 `filter` 取得 cityName 欄位中含有 `臺中市` 的所有資料。
+- 將 `console.info` / `console.time` 包裝為一個叫做 `log` 的 module。
+- 最後透過 `log.info` 印出所有結果，並透過 `log.time` 計算耗費時間。
 - 將專案命名為 `day2/module` 並 PR 該作業。
 
 # 接下來...
