@@ -652,7 +652,7 @@ router.goTodoPage = async (req, res) => {
 <script type="text/javascript" src="////cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 ```
 
-- 加入 head - `/views/partials/header.ejs`
+- 加入 link - `/views/partials/header.ejs`
 
 ```html
   <li><a href="/todo">Todo</a></li>
@@ -957,9 +957,8 @@ $(function() { appendClose() });
 ---
 
 ## 6.10 作業
-### 6.10.1 實作登入與驗證機制
+### 6.10.1 實作登入驗證機制
 - 規格：
-  - 可以註冊 user 以登入系統
   - 可以驗證密碼，如果密碼不正確要顯示錯誤訊息
 
 ### 6.10.2 實作登入後才能留言的留言板
