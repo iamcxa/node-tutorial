@@ -552,7 +552,7 @@ module.exports = (sequelize, DataTypes) => {
 router.get('/todo', async (req, res) => {
   const users = await models.User.findAll();
   return res.render('todo', {
-    title: 'Task list',
+    title: 'Todo list',
     data: {
       users,
       tasks: [],
@@ -650,6 +650,12 @@ router.goTodoPage = async (req, res) => {
 
 ```html
 <script type="text/javascript" src="////cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+```
+
+- 加入 head - `/views/partials/header.ejs`
+
+```html
+  <li><a href="/todo">Todo</a></li>
 ```
 
 - Css - `/public/stylesheets/todo.css`
