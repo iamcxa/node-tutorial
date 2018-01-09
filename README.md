@@ -32,7 +32,7 @@
   - [http module](./node-tour/node-module-http/index.md)
   - [http fs](./node-tour/node-module-fs/index.md)
 
-- DAY3 - Node.js 實戰 - 使用 Express.js
+- DAY3 - [Node.js 實戰 - 使用 Express.js](./node-tour/node-express/index.md)
   - package.json, again!
   - Express 概述與安裝
   - 了解 Model/Router/Views
