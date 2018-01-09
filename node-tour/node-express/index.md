@@ -1,10 +1,4 @@
----
-title: Node.js 入門之 Express.js 實戰
-layout: page
-category: nodejs
-date: 2018-01-09
-modifiedOn: 2018-01-09
----
+
 
 # 6. Node.js 入門之 Express.js 實戰
 
