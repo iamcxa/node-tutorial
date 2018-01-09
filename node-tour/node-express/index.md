@@ -351,6 +351,12 @@ Task.belongsTo(Project);
 ### 6.6.1 使用 PostMan
 ![](./image/express-postman.png)
 
+- [Windows download](https://app.getpostman.com/app/download/win64)
+
+- [Mac download](https://app.getpostman.com/app/download/osx64?utm_source=site&utm_medium=apps&utm_campaign=macapp)
+
+- [Linux download](https://app.getpostman.com/app/download/linux64)
+
 #### A. 範例操作：取得 IP
 
 - 使用 get method
