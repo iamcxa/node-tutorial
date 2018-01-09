@@ -453,9 +453,7 @@ router.get('/', async (req, res) => {
 
 // 使用者清單
 router.get('/users', async (req, res) => {
-  const users = await models.User.findAll({
-    include: [models.Task],
-  });
+  const users = await models.User.findAll();
 
   return res.render('user', {
     title: 'User list',
@@ -475,17 +473,13 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
   });
 
-  User.associate = (models) => {
-    models.User.hasMany(models.Task);
-  };
-
   return User;
 };
 ```
 
 ### 6.7.3 製作一個關於網站頁面 - view
 
-- about 
+<!-- - about 
 
 ### 6.7.4 修改資料表欄位與更新畫面 - model（新建一個 todo 資料表關聯到 user）
 
@@ -497,7 +491,7 @@ module.exports = (sequelize, DataTypes) => {
 
 #### 6.7.5.1 修改 route（新增route可以增刪查改todo表）
 
-#### 6.7.5.2 更新畫面（讓畫面有按鈕可以新增與刪除todo）
+#### 6.7.5.2 更新畫面（讓畫面有按鈕可以新增與刪除todo） -->
 
 ### 6.7.6 新增一個完整的功能（TODO List）
 
